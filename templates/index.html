@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet",href='static/style.css'>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    
+</head>
+<body>
+    <div id ="heady"  style="background-color:rgb(30, 116, 145); padding: 20px; text-align: center;"> 
+        <h1 style="text-align: center;  padding: 20px;">Welcome to the Report Department </h1>
+    </div>
+        <h3 style=" text-align: center;  padding: 20px;">Submit Your  CT SCAN report here  </h3>
+    
+    <form style=" text-align: center;" method="post" enctype="multipart/form-data"> 
+        <input type="file"  name="image_upload" id="image_upload" > 
+        <input class = "file-path validate" type = "text" placeholder = "Upload Image" name="image_name" id="image_name" />
+        
+        <input type="submit" value="Submit">
+      </form> 
+      <div style="text-align: center; padding-top: 50px; margin-left: 100px">
+        <img src="{{ url_for('static',filename=full_filename) }}" width="300" height="300">
+        <div>
+            <h3>{{ pred }}</h3>
+        </div>
+        
+      </div>
+      <h2 style="text-align: center; padding: 20px;">We Are 89% Accurate</h2>
+      <h3 style="text-align: center; padding: 20px;">We Predict based on these 4 Categories</h3>
+      <div class="row">
+        
+      <div class="card col-sm-3" style="padding: 5px;">
+        <img class="card-img-top" src="{{ url_for('static',filename=s) }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">squamous.cell.carcinoma_left.hilum_T1_N2_M0_IIIa</h5>
+          <p class="card-text">Squamous-cell carcinoma (SCC), also known as epidermoid carcinoma, comprises a number of different types of cancer that begin in squamous cells.[1] These cells form on the surface of the skin, on the lining of hollow organs in the body, and on the lining of the respiratory and digestive tracts.</p>
+          <a href="https://en.wikipedia.org/wiki/Squamous-cell_carcinoma" class="btn btn-primary">Want to Know More</a>
+        </div>
+      </div>
+      <div class="card col-sm-3" style=" padding: 5px;">
+        <img class="card-img-top" src="{{ url_for('static',filename=normal) }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Normal</h5>
+          <p class="card-text">There are many factors that can have a dramatic effect on lung health and disease. We should all try to understand more about these factors and what actions we can take to keep our lungs healthy.</p>
+          <a href="https://www.mayoclinic.org/healthy-lifestyle/adult-health/in-depth/cancer-prevention/art-20044816" class="btn btn-primary">Cancer Prevention tips</a>
+        </div>
+      </div>
+      <div class="card col-sm-3" style="padding: 5px;">
+        <img class="card-img-top" src="{{ url_for('static',filename=l) }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">large.cell.carcinoma_left.hilum_T2_N2_M0_IIIa</h5>
+          <p class="card-text">Large-cell lung carcinoma (LCLC), or large-cell carcinoma (LCC) in short, is a heterogeneous group of undifferentiated malignant neoplasms that lack the cytologic and architectural features of small cell carcinoma and glandular or squamous differentiation.</p>
+          <a href="https://en.wikipedia.org/wiki/Large-cell_lung_carcinoma" class="btn btn-primary">Want to Know More</a>
+        </div>
+      </div>
+      <div class="card col-sm-3" style="padding: 5px;">
+        <img class="card-img-top" src="{{ url_for('static',filename=s) }}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">adenocarcinoma_left.lower.lobe_T2_N0_M0_Ib</h5>
+          <p class="card-text">Adenocarcinomas is a type of cancerous tumor that can occur in several parts of the body. It is defined as neoplasia of epithelial tissue that has glandular origin, glandular characteristics, or both. Adenocarcinomas are part of the larger grouping of carcinomas, but are also sometimes called by more precise terms omitting the word, where these exist. </p>
+          <a href="https://en.wikipedia.org/wiki/Adenocarcinoma" class="btn btn-primary">Want to Know More</a>
+        </div>
+      </div>
+      </div>
+
+      
+      
+      
+      <script type="text/javascript">
+        document.getElementById('image_upload').onchange = function () {
+            document.getElementById('image_name').value = this.value.slice(12,100);
+        };
+      </script>
+    
+</body>
+</html>
